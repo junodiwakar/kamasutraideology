@@ -1,38 +1,29 @@
-
-<div class="header navbar-light bg-light">
-	<div class="container d-flex justify-content-between align-items-center">
-		<div class="search-icon">
-			<form class="d-flex">
-				<input class="form-control" type="search" placeholder="Search" aria-label="Search">
-			</form>
-		</div>
-		<h2>Kamasutraideology</h2>
-		<div class="login">Login</div>
-	</div>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-		<div class="container">
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Health</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">News</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Technology</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">About us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+		<%= link_to 'KamasutraIdeology',root_path, class:"navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+       <li class="nav-item">
+        <% if user_signed_in?%>
+          <%= button_to 'Log out',destroy_user_session_path,method: :delete, class:"nav-link btn btn-link"%>
+        <% else %>
+          <%= link_to 'login',new_user_session_path, class:"nav-link"%>
+        <% end %>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
