@@ -10,7 +10,11 @@
           <%= link_to 'Continue reading', blog_path(blog), class:"stretched-link"%>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <%= image_tag 'ivf2.jpg', class: 'bd-placeholder-img', width: 200, height: 250 %>
+          <% if blog.image.present?%>
+            <%= image_tag blog.image, class: 'bd-placeholder-img', width: 200, height: 250 %>
+          <% else %>
+            <%= image_tag 'ivf2.jpg', class: 'bd-placeholder-img', width: 200, height: 250 %>
+          <% end %>
         </div>
       </div>
     </div>
