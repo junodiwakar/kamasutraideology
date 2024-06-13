@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ .blog-image{
+    height: 50vh;
+ }
+ .blog-container{
+    border: 1px solid black;
+ }

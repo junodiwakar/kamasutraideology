@@ -1,12 +1,9 @@
-<p>
-  <strong>Headline:</strong>
-  <%= @blog.headline %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @blog.description %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div class="container blog-container p-4">
+  <div class="blog-image">
+    <%= image_tag 'ivf2.jpg', class: 'card-img-top h-100' %>
+  </div>
+  <div class="blog-content">
+    <h5 class="card-title"><%= @blog.headline %></h5>
+    <p class="card-text"><%= @blog.description %></p>
+  </div>
+</div>
