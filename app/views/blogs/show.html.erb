@@ -1,6 +1,10 @@
 <div class="container blog-container p-4">
   <div class="blog-image">
-    <%= image_tag 'ivf2.jpg', class: 'card-img-top h-100' %>
+    <% if @blog.image.present?%>
+      <%= image_tag @blog.image, class: 'card-img-top h-100' %>
+    <% else %>
+      <%= image_tag 'ivf2.jpg', class: 'card-img-top h-100' %>
+    <% end %>
   </div>
   <div class="blog-content">
     <h5 class="card-title"><%= @blog.headline %></h5>
