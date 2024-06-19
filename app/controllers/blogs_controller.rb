@@ -11,6 +11,7 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    @categories = Category.all
   end
 
   def create
@@ -25,6 +26,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:headline, :description, :image)
+    params.require(:blog).permit(:headline, :description, :image, category_ids: [])
   end
 end
