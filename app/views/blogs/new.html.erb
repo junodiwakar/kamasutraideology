@@ -6,10 +6,12 @@
       <%= form.label :image %>
       <%= form.file_field :image %>
     </div>
+
     <div class="field">
       <%= form.label :categories %><br>
       <%= form.collection_check_boxes :category_ids, @categories, :id, :name %>
     </div>
+
     <div class="field">
       <%= form.label :headline %>
       <%= form.text_field :headline %>
