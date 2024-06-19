@@ -1,16 +1,14 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_blog, only: [:show]
 
   def index
     @blogs = Blog.all
   end
 
-  def show
-    @blog = Blog.find(params[:id])
-  end
-
   def new
     @blog = Blog.new
+    @categories = Category.all
   end
 
   def create
@@ -25,6 +23,10 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:headline, :description, :image)
+    params.require(:blog).permit(:headline, :description, :slug, :image, category_ids: [])
+  end
+
+  def set_blog
+    @blog = Blog.find_by!(slug: params[:id])
   end
 end
