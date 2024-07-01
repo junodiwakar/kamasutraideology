@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="row">
+        <% @blogs.each do |blog| %>
+            <div class="col-md-4">
+                <%= link_to blog_path(blog), class: 'text-decoration-none text-dark' do %>
+                    <div class="card mb-3">
+                        <% if blog.image.present? %>
+                            <%= image_tag blog.image, class: 'card-img-top' %>
+                        <% else %>
+                            <%= image_tag 'ivf2.jpg', class: 'card-img-top' %>
+                        <% end %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= blog.headline %></h5>
+                            <p class="card-text"><%= blog.description.to_plain_text.truncate(150) %></p>
+                            <p class="card-text"><small class="text-muted"><%= blog.created_at.strftime("%Y-%m-%d") %></small></p>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>

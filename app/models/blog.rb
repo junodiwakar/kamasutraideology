@@ -1,5 +1,6 @@
 class Blog < ApplicationRecord
-  validates :headline,:description, presence: true
+  validates :description, :category_ids, presence: true
+  validates :headline, presence: true, uniqueness: { case_sensitive: true }
   has_rich_text :description
   has_one_attached :image
   has_many :blog_categories,dependent: :destroy
