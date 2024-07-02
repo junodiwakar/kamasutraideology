@@ -4,7 +4,11 @@ class BlogsController < ApplicationController
   before_action :set_categories, only: [:new,:create]
 
   def index
-    @blogs = Blog.all
+    if params[:category]
+      @blogs = Blog.joins(:categories).where(categories: { name: params[:category] })
+    else
+      @blogs = Blog.all
+    end
   end
 
   def new
