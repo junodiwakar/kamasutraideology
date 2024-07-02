@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
  .blog-image{
@@ -19,4 +20,7 @@
  }
  .blog-container{
     border: 1px solid black;
+ }
+ .social-size{
+   font-size: 24px !important;
  }

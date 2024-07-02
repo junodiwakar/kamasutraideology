@@ -1,22 +1,27 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_blog, only: [:show]
+  before_action :set_categories, only: [:new,:create]
 
   def index
-    @blogs = Blog.all
+    if params[:category]
+      @blogs = Blog.joins(:categories).where(categories: { name: params[:category] })
+    else
+      @blogs = Blog.all
+    end
   end
 
   def new
     @blog = Blog.new
-    @categories = Category.all
   end
 
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      redirect_to @blog
+      redirect_to @blog, notice: "blog created successfully!"
     else
-      render 'new'
+      flash[:alert] = "Failed to create a blog."
+      redirect_to new_blog_path
     end
   end
 
@@ -28,5 +33,9 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = Blog.find_by!(slug: params[:id])
+  end
+
+  def set_categories
+    @categories =  Category.all
   end
 end
