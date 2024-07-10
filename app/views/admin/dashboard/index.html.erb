@@ -1,38 +1,55 @@
-<button class="btn btn-info mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="fa fa-sharp fa-regular fa-arrow-right "></i> </button>
-
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
-            <i class="fa fa-sharp fa-regular fa-home me-2 "></i> 
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <i class="fa fa-sharp fa-regular fa-dashboard me-2 "></i> 
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <i class="fa fa-sharp fa-regular fa-book me-2 "></i>    
-            Blogs
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <i class="fa fa-sharp fa-regular fa-user me-2 "></i>   
-            Users
-          </a>
-        </li>
-      </ul>
+<%= render 'admin_sidebar' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card  text-center">
+        <%=image_tag 'users1.png', class:"card-img-top",style: "height:260px;"%>
+        <div class="card-body">
+        <h5 class="card-title">Total Users: <%= User.all.count%></h5>
+        <%= link_to 'Show', admin_users_path, class:"btn btn-primary w-100"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <%=image_tag 'blogs.png', class:"card-img-top" ,style: "height:260px;"%>  
+        <div class="card-body">
+        <h5 class="card-title">Total Blogs: <%= Blog.all.count%></h5>
+        <%= link_to 'Show', admin_blogs_path, class:"btn btn-primary w-100"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <%=image_tag 'category.png', class:"card-img-top",style: "height:260px;"%>
+        <div class="card-body">
+        <h5 class="card-title">Total Categories: <%= Category.all.count%></h5>
+        <%= link_to 'Show', admin_categories_path, class:"btn btn-primary w-100"%>
+        </div>
+      </div>
     </div>
   </div>
+
+  <%# Table %>
+  <table class="table caption-top">
+    <caption>List of Blogs</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Blog Headline</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>
+          <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+          <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></i></button> 
+          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

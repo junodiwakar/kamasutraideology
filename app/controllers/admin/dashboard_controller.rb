@@ -6,6 +6,17 @@ class Admin::DashboardController < ApplicationController
     # Admin dashboard code here...
   end
 
+  def blogs
+    @blogs = Blog.all
+  end
+
+  def users
+    @users = User.all
+  end
+  def categories
+    @categories = Category.all
+  end
+
   private
 
   def require_admin
