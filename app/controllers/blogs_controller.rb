@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_blog, only: [:show]
   before_action :set_categories, only: [:new,:create]
+  before_action :require_admin, only: [:new,:create]
 
   def index
     if params[:category]
@@ -37,5 +38,12 @@ class BlogsController < ApplicationController
 
   def set_categories
     @categories =  Category.all
+  end
+
+  def require_admin
+    unless current_user.admin?
+      flash[:alert] = "You are not authorized to access this section."
+      redirect_to root_path
+    end
   end
 end
