@@ -3,17 +3,8 @@ class Admin::DashboardController < ApplicationController
   before_action :require_admin
 
   def index
-    # Admin dashboard code here...
-  end
-
-  def blogs
     @blogs = Blog.all
-  end
-
-  def users
     @users = User.all
-  end
-  def categories
     @categories = Category.all
   end
 

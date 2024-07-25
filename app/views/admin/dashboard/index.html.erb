@@ -5,8 +5,8 @@
       <div class="card  text-center">
         <%=image_tag 'users1.png', class:"card-img-top",style: "height:260px;"%>
         <div class="card-body">
-        <h5 class="card-title">Total Users: <%= User.all.count%></h5>
-        <%= link_to 'Show', admin_users_path, class:"btn btn-primary w-100"%>
+        <h5 class="card-title">Total Users: <%= @users.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
         </div>
       </div>
     </div>
@@ -14,8 +14,8 @@
       <div class="card text-center">
         <%=image_tag 'blogs.png', class:"card-img-top" ,style: "height:260px;"%>  
         <div class="card-body">
-        <h5 class="card-title">Total Blogs: <%= Blog.all.count%></h5>
-        <%= link_to 'Show', admin_blogs_path, class:"btn btn-primary w-100"%>
+        <h5 class="card-title">Total Blogs: <%= @blogs.all.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
         </div>
       </div>
     </div>
@@ -23,8 +23,8 @@
       <div class="card text-center">
         <%=image_tag 'category.png', class:"card-img-top",style: "height:260px;"%>
         <div class="card-body">
-        <h5 class="card-title">Total Categories: <%= Category.all.count%></h5>
-        <%= link_to 'Show', admin_categories_path, class:"btn btn-primary w-100"%>
+        <h5 class="card-title">Total Categories: <%= @categories.all.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
         </div>
       </div>
     </div>
@@ -41,15 +41,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>
-          <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
-          <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></i></button> 
-          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></i></button>
-        </td>
-      </tr>
+      <% @blogs.each_with_index do |blog, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= blog.headline %></td>
+          <td>
+            <%= link_to blog_path(blog), class: "btn btn-primary" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
