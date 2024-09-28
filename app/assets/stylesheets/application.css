@@ -24,3 +24,6 @@
  .social-size{
    font-size: 24px !important;
  }
+ trix-editor{
+   min-height: 500px;
+}

@@ -1,0 +1,59 @@
+<%= render 'admin_sidebar' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card  text-center">
+        <%=image_tag 'users1.png', class:"card-img-top",style: "height:260px;"%>
+        <div class="card-body">
+        <h5 class="card-title">Total Users: <%= @users.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <%=image_tag 'blogs.png', class:"card-img-top" ,style: "height:260px;"%>  
+        <div class="card-body">
+        <h5 class="card-title">Total Blogs: <%= @blogs.all.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <%=image_tag 'category.png', class:"card-img-top",style: "height:260px;"%>
+        <div class="card-body">
+        <h5 class="card-title">Total Categories: <%= @categories.all.count%></h5>
+        <%= link_to 'Show', "", class:"btn btn-primary w-100"%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Table %>
+  <table class="table caption-top">
+    <caption>List of Blogs</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Blog Headline</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @blogs.each_with_index do |blog, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= blog.headline %></td>
+          <td>
+            <%= link_to blog_path(blog), class: "btn btn-primary" do %>
+              <i class="fa fa-eye"></i>
+            <% end %>
+            <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
