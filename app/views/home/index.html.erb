@@ -3,11 +3,15 @@
   <div class="row">
     <div class="col-lg-6 pe-lg-0">
       <div class="card bg-dark text-white h-100">
-        <%= image_tag 'ivf2.jpg', class: 'card-img h-100' %>
+        <% if @blogs.first.image.present? %>
+          <%= image_tag @blogs.first.image, class: 'card-img h-100' %>
+        <% else %>
+          <%= image_tag 'ivf2.jpg', class: 'card-img h-100' %>
+        <% end %>
         <div class="card-img-overlay d-flex flex-column justify-content-end p-3">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          <h5 class="card-title"><%=@blogs.first.headline %></h5>
+          <p class="card-text"><%= @blogs.first.description.to_plain_text.truncate(100)%></p>
+          <p class="card-text"><small><%= @blogs.first.updated_at %></small></p>
         </div>
       </div>
     </div>
@@ -15,13 +19,17 @@
       <div class="card mb-2">
         <div class="row g-0">
           <div class="col-md-4">
-            <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% if @blogs.second.image.present? %>
+              <%= image_tag @blogs.second.image, class: 'img-fluid h-100 rounded-start' %>
+            <% else %>
+              <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title"><%=@blogs.second.headline %></h5>
+              <p class="card-text"><%= @blogs.second.description.to_plain_text.truncate(100)%></p>
+              <p class="card-text"><small><%= @blogs.second.updated_at %></small></p>
             </div>
           </div>
         </div>
@@ -29,13 +37,17 @@
       <div class="card mb-2">
         <div class="row g-0">
           <div class="col-md-4">
-            <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% if @blogs.third.image.present? %>
+              <%= image_tag @blogs.third.image, class: 'img-fluid h-100 rounded-start' %>
+            <% else %>
+              <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title"><%=@blogs.third.headline %></h5>
+              <p class="card-text"><%= @blogs.third.description.to_plain_text.truncate(100)%></p>
+              <p class="card-text"><small><%= @blogs.third.updated_at %></small></p>
             </div>
           </div>
         </div>
@@ -43,13 +55,17 @@
       <div class="card">
         <div class="row g-0">
           <div class="col-md-4">
-            <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% if @blogs.fourth.image.present? %>
+              <%= image_tag @blogs.fourth.image, class: 'img-fluid h-100 rounded-start' %>
+            <% else %>
+              <%= image_tag 'ivf2.jpg', class: 'img-fluid h-100 rounded-start' %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title"><%=@blogs.fourth.headline %></h5>
+              <p class="card-text"><%= @blogs.fourth.description.to_plain_text.truncate(100)%></p>
+              <p class="card-text"><small><%= @blogs.fourth.updated_at %></small></p>
             </div>
           </div>
         </div>
@@ -65,4 +81,7 @@
 
   <%# Politics Blogs %>
   <%= render "blogs/politic_blog", blogs: @technology_blogs %>
+
+  <%# Must Read section %>
+  <%= render "blogs/must_read_section", blogs: @blogs %>
 </div>
