@@ -1,7 +1,7 @@
 <div class="container">
   <h1>New Blog</h1>
 
-  <%= form_with(model: @blog, url: blogs_path) do |form| %>
+  <%= form_with(model: @blog, url: admin_blogs_path) do |form| %>
     <div class="field">
       <%= form.label :image %>
       <%= form.file_field :image %>
