@@ -49,8 +49,12 @@
             <%= link_to blog_path(blog), class: "btn btn-primary" do %>
               <i class="fa fa-eye"></i>
             <% end %>
-            <button type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            <%= link_to edit_admin_blog_path(blog), class: "btn btn-warning" do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+            <%= link_to admin_blog_path(blog), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },  class: "btn btn-danger" do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
           </td>
         </tr>
       <% end %>
