@@ -24,6 +24,21 @@ html,body {
    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
+.nav-item:hover .dropdown-menu {
+  display: block;
+  margin: 0;
+}
+
+/* Add active class on hover */
+.nav-item .nav-link:hover {
+  color:rgb(75, 181, 246) !important;
+  background-color: var(--bs-link-bg-hover);
+  font-weight: bold;
+}
+.nav-item .nav-link:hover i {
+  color: inherit; /* Ensures the icon color changes with the link */
+}
+
 .main-container{
    min-height:80%;
    position:relative;
@@ -41,6 +56,14 @@ html,body {
    min-height: 500px;
 }
 
+.logo-container{
+  height: 80px;
+}
+
+.logo-design{
+  height: 100%;
+  /* margin-top: 10px; */
+}
 /* Newsletter */
 .popup {
    position: relative;
