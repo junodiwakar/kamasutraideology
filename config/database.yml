@@ -30,11 +30,11 @@ test:
 
 production:
   adapter: postgresql
-  encoding: utf8mb4
+  encoding: unicode # Change utf8mb4 to unicode or UTF8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: kamasutraideology_production
-  username: arjun
-  password: mypassword
+  database: 3rdopinion_production
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   host: <%= ENV["DB_HOST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
