@@ -66,6 +66,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'pg', group: :production
+
 gem "devise", "~> 4.9"
 gem "font-awesome-rails"
 gem 'sassc'
