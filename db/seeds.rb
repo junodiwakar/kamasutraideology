@@ -7,8 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
-@admin =  User.create!(email:"admin@3rdopinion.com", password:"admin@123", admin:true)
+@admin =  User.create!(email:"admin@3rdopinion.com", password:"@dmin@_123", admin:true)
 @category1 = Category.create!(name:"Health")
 @category2 = Category.create!(name:"Technologies")
 @category3 = Category.create!(name:"Automobile")

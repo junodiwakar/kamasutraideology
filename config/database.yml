@@ -30,7 +30,7 @@ test:
 
 production:
   adapter: postgresql
-  client_encoding: unicode # Change utf8mb4 to unicode or UTF8
+  encoding: unicode # Change utf8mb4 to unicode or UTF8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: 3rdopinion_production
   username: <%= ENV["DB_USER"] %>
@@ -57,8 +57,3 @@ production:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
-  database: kamasutraideology_production
-  username: kamasutraideology
-  password: <%= ENV["KAMASUTRAIDEOLOGY_DATABASE_PASSWORD"] %>
