@@ -30,7 +30,7 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: kamasutraideology_production
   username: arjun
